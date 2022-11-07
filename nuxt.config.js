@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - vue-presentation',
-    title: 'vue-presentation',
+    titleTemplate: 'Medis Bar',
+    title: 'Medis Bar',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -18,7 +18,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favi.ico' }
     ]
   },
 
