@@ -9,10 +9,10 @@
       right
       fixed
       app
-      color="red"
+      color="black"
     >
       <v-list>
-        <v-list-item
+        <!-- <v-list-item
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -25,7 +25,22 @@
           <v-list-item-content>
             <v-list-item-title><p class="white--text drawer-list">{{item.title}}</p></v-list-item-title>
           </v-list-item-content>
+        </v-list-item> -->
+
+
+        <v-list-item router to="/" exact>
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Home</p></v-list-item-title>
         </v-list-item>
+        <v-list-item router to="/inspire" exact>
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Order</p></v-list-item-title>
+        </v-list-item>
+        <v-list-item router to="/" exact>
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >Contact</p></v-list-item-title>
+        </v-list-item>
+        <v-list-item router to="/" class="slide">
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >スライド</p></v-list-item-title>
+        </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
@@ -58,17 +73,24 @@
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 .nav-bar {
   width: 1100px;
   margin: 0 auto;
   font-family: 'Cardo';
+}
+.drawer-list{
+  font-family: 'Cardo';
+  margin: 20px;
 }
 .nav-title{
   color: white;
   cursor: pointer;
   font-size: 24px;
   margin-bottom: 0;
+}
+.slide{
+  background-color: #1B77D2;
 }
 </style>
 <script>
