@@ -18,7 +18,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favi.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favi.ico' },
+      { href: "https://fonts.googleapis.com/css2?family=Cardo:wght@700&display=swap" ,rel: "stylesheet"}
     ]
   },
 
