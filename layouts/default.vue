@@ -31,7 +31,7 @@
         <v-list-item router to="/" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Home</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/inspire" exact>
+        <v-list-item router to="/order" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Order</p></v-list-item-title>
         </v-list-item>
         <v-list-item router to="/" exact>
@@ -52,7 +52,7 @@
         </v-toolbar-title>
         <v-spacer />
         <v-toolbar-items>
-          <v-btn to="/inspire" text class="white--text" style="text-transform: none">Order</v-btn>
+          <v-btn to="/order" text class="white--text" style="text-transform: none">Order</v-btn>
           <v-btn text class="white--text" style="text-transform: none">Contact</v-btn>
           <v-btn  class="primary">スライド</v-btn>
         </v-toolbar-items>
@@ -66,14 +66,20 @@
     </v-main>
 
     <!-- footer -->
-    <v-footer :absolute="!fixed" app color="black">
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer :absolute="fixed" app color="black" class="d-flex justify-center">
+      <span class="white--text text-center">&copy; {{ new Date().getFullYear() }}  Hajime Kamino  All rights recerved.</span>
     </v-footer>
   </v-app>
 </template>
 
 
 <style scoped lang="scss">
+#app{
+  background-image: url("~@/assets/black-g73bfa2a23_1280.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
 .nav-bar {
   width: 1100px;
   margin: 0 auto;
@@ -110,7 +116,7 @@ export default {
         {
           icon: "mdi-chart-bubble",
           title: "Order",
-          to: "/inspire",
+          to: "/order",
         },
         {
           icon: "mdi-chart-bubble",

@@ -1,4 +1,5 @@
 <template>
+<div class="order">
   <v-row>
     <v-col class="text-center">
       <img
@@ -16,8 +17,12 @@
       </blockquote>
     </v-col>
   </v-row>
+</div>
 </template>
 
+<style lang="scss" scoped>
+
+</style>
 <script>
 export default {
   name: 'InspirePage'
