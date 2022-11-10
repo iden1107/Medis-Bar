@@ -15,8 +15,8 @@
         <v-list-item router to="/" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Home</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/order" exact>
-          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Order</p></v-list-item-title>
+        <v-list-item router to="/menu" exact>
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Menu</p></v-list-item-title>
         </v-list-item>
         <v-list-item router to="/" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >Contact</p></v-list-item-title>
@@ -35,7 +35,7 @@
         </v-toolbar-title>
         <v-spacer />
         <v-toolbar-items class="d-none d-sm-block">
-          <v-btn to="/order" text class="white--text" style="text-transform: none">Order</v-btn>
+          <v-btn to="/menu" text class="white--text" style="text-transform: none">Menu</v-btn>
           <v-btn text class="white--text" style="text-transform: none">Contact</v-btn>
           <v-btn  class="primary">スライド</v-btn>
         </v-toolbar-items>
@@ -75,7 +75,7 @@
 .nav-title{
   color: white;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 0;
 }
 .slide{
@@ -98,8 +98,8 @@ export default {
         },
         {
           icon: "mdi-chart-bubble",
-          title: "Order",
-          to: "/order",
+          title: "Menu",
+          to: "/menu",
         },
         {
           icon: "mdi-chart-bubble",
