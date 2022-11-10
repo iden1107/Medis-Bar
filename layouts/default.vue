@@ -12,22 +12,6 @@
       color="black"
     >
       <v-list>
-        <!-- <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title><p class="white--text drawer-list">{{item.title}}</p></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item> -->
-
-
         <v-list-item router to="/" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Home</p></v-list-item-title>
         </v-list-item>
@@ -37,10 +21,9 @@
         <v-list-item router to="/" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >Contact</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/" class="slide">
+        <v-list-item router to="/" exact class="slide">
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >スライド</p></v-list-item-title>
         </v-list-item>
-
       </v-list>
     </v-navigation-drawer>
 
@@ -51,12 +34,12 @@
           <nuxt-link to="/" tag="p" class="white-text nav-title">{{title}}</nuxt-link>
         </v-toolbar-title>
         <v-spacer />
-        <v-toolbar-items>
+        <v-toolbar-items class="d-none d-sm-block">
           <v-btn to="/order" text class="white--text" style="text-transform: none">Order</v-btn>
           <v-btn text class="white--text" style="text-transform: none">Contact</v-btn>
           <v-btn  class="primary">スライド</v-btn>
         </v-toolbar-items>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text"/>
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text d-sm-none"/>
       </v-toolbar-items>
     </v-app-bar>
 
@@ -67,7 +50,7 @@
 
     <!-- footer -->
     <v-footer :absolute="fixed" app color="black" class="d-flex justify-center">
-      <span class="white--text text-center">&copy; {{ new Date().getFullYear() }}  Hajime Kamino  All rights recerved.</span>
+      <span class="white--text text-center">&copy; {{ new Date().getFullYear() }}  Kamino Hajime All rights recerved.</span>
     </v-footer>
   </v-app>
 </template>
