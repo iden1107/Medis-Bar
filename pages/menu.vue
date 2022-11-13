@@ -20,7 +20,7 @@
               />
               <div class="detail">
                 <p class="font">{{ cocktail.name }}</p>
-                <p class="white--text">{{ cocktail.price | hoge}}</p>
+                <p class="white--text">{{ cocktail.price | locale}}</p>
                 <p class="white--text">{{ cocktailbase[cocktail.base] }}</p>
               </div>
 
@@ -97,7 +97,7 @@ export default {
     };
   },
   filters:{
-    hoge(value){
+    locale(value){
       return  "¥" + value.toLocaleString()
     }
   }

@@ -1,0 +1,37 @@
+<template>
+  <div class="container">
+    <p>slideだ</p>
+  </div>
+</template>
+
+
+<style scoped lang="scss">
+.container {
+  max-width: 1100px;
+  padding: 8vh 5vh 0vh;
+}
+img {
+  margin: auto;
+}
+.sub-title{
+  font-family: "Cardo";
+  font-size: 40px;
+  text-align: center;
+}
+.top {
+  background-image: url("~@/assets/restaurant-g691fb34fb_1920.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 40vh;
+  p {
+    font-family: "Cardo";
+    font-size: 60px;
+    line-height: 30vh;
+  }
+}
+</style>
+<script>
+export default {
+  name: "SlidePage",
+};
+</script>

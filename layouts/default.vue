@@ -19,10 +19,10 @@
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Menu</p></v-list-item-title>
         </v-list-item>
         <v-list-item router to="/" exact>
-          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >Contact</p></v-list-item-title>
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Contact</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/" exact class="slide">
-          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list" >スライド</p></v-list-item-title>
+        <v-list-item router to="/slide" exact class="nav-slide">
+          <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">スライド</p></v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -37,7 +37,7 @@
         <v-toolbar-items class="d-none d-sm-block">
           <v-btn to="/menu" text class="white--text" style="text-transform: none">Menu</v-btn>
           <v-btn text class="white--text" style="text-transform: none">Contact</v-btn>
-          <v-btn  class="primary">スライド</v-btn>
+          <v-btn  to="/slide" class="primary">スライド</v-btn>
         </v-toolbar-items>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text d-sm-none"/>
       </v-toolbar-items>
@@ -78,7 +78,7 @@
   font-size: 28px;
   margin-bottom: 0;
 }
-.slide{
+.nav-slide{
   background-color: #1B77D2;
 }
 </style>
@@ -117,6 +117,18 @@ export default {
       rightDrawer: false,
       title: "Medis Bar",
     };
+  },
+  methods:{
+    // 600px以上でドロワーメニューを非表示
+    drawerMenuShow(){
+      console.log(window.outerWidth)
+      if(window.outerWidth >= 600){
+        this.drawer = false
+      }
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.drawerMenuShow)
   },
 };
 </script>
