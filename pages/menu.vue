@@ -10,7 +10,7 @@
         <v-row class="search-bar">
           <!-- 名前検索 -->
           <v-col cols="6" md="3">
-            <p>名称</p>
+            <p>カクテル名</p>
             <v-textarea
               label=""
               v-model="search.name"
@@ -29,11 +29,12 @@
               color="black"
               item-color="black"
               background-color="white"
+              class="p-0"
             ></v-select>
           </v-col>
           <!-- 金額検索（下限・上限） -->
           <v-col cols="6" md="3">
-            <p>価格</p>
+            <p>下限価格</p>
             <v-textarea
               v-model="search.lowerPrice"
               rows="1"
@@ -43,7 +44,7 @@
             </v-textarea>
           </v-col>
           <v-col cols="6" md="3">
-            <p>価格</p>
+            <p>上限価格</p>
             <v-textarea
               v-model="search.upperPrice"
               rows="1"
@@ -91,6 +92,13 @@
 .container {
   max-width: 1100px;
   padding: 0 5vh 10vh;
+  p{
+    margin: 10px 0 0;
+    color: white;
+  }
+  .v-textarea,.v-select{
+    padding-top: 0;
+  }
 }
 img{
   width: 45%;
