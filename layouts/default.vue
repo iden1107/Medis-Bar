@@ -18,7 +18,7 @@
         <v-list-item router to="/menu" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Menu</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/" exact>
+        <v-list-item router to="/contact" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Contact</p></v-list-item-title>
         </v-list-item>
         <v-list-item router to="/slide" exact class="nav-slide">
@@ -36,8 +36,8 @@
         <v-spacer />
         <v-toolbar-items class="d-none d-sm-block">
           <v-btn to="/menu" text class="white--text" style="text-transform: none">Menu</v-btn>
-          <v-btn text class="white--text" style="text-transform: none">Contact</v-btn>
-          <v-btn  to="/slide" class="primary">スライド</v-btn>
+          <v-btn to="/contact" text class="white--text" style="text-transform: none">Contact</v-btn>
+          <v-btn to="/slide" class="primary">スライド</v-btn>
         </v-toolbar-items>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text d-sm-none"/>
       </v-toolbar-items>
@@ -54,7 +54,6 @@
     </v-footer>
   </v-app>
 </template>
-
 
 <style scoped lang="scss">
 #app{
@@ -82,6 +81,7 @@
   background-color: #1B77D2;
 }
 </style>
+
 <script>
 export default {
   name: "DefaultLayout",
@@ -90,28 +90,6 @@ export default {
       clipped: true,
       drawer: false,
       fixed: false,
-      items: [
-        {
-          icon: "mdi-apps",
-          title: "Home",
-          to: "/",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Menu",
-          to: "/menu",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Contact",
-          to: "/inspire",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "スライド",
-          to: "/inspire",
-        },
-      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
