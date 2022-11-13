@@ -64,6 +64,12 @@
 </template>
 
 <style scoped lang="scss">
+.home{
+  background-image: url("~@/assets/black-g73bfa2a23_1280.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
 .container {
   max-width: 1100px;
   padding: 8vh 5vh 0vh;

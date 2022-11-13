@@ -56,12 +56,6 @@
 </template>
 
 <style scoped lang="scss">
-#app{
-  background-image: url("~@/assets/black-g73bfa2a23_1280.png");
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100%;
-}
 .nav-bar {
   width: 1100px;
   margin: 0 auto;

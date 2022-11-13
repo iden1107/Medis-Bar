@@ -85,6 +85,15 @@
 </template>
 
 <style lang="scss" scoped>
+.menu{
+  background-image: url("~@/assets/black-g73bfa2a23_1280.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+.search{
+  display: fixed;
+}
 .container {
   max-width: 1100px;
   padding: 0 5vh 5vh;
@@ -106,10 +115,8 @@ img{
   text-align: center;
   padding-top:5vh;
 }
-.search-bar{
-  background-image: url("~@/assets/glasses-ge74007b43_1280.jpg");
-  background-size: cover;
-  background-position: top center;
+.col-6{
+  padding: 0 2vh;
 }
 .detail{
   padding: 0 16px;
