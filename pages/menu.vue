@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+            <p class="white--text sub-title">Menu</p>
     <!-- 検索バー -->
     <section class="search">
       <div class="container">
@@ -60,7 +61,6 @@
     <!-- メニュー -->
     <section class="cocktails">
       <div class="container">
-        <p class="white--text sub-title">Menu</p>
         <transition-group name="menu" tag="v-row">
           <v-col
             cols="12"
@@ -87,7 +87,7 @@
 <style lang="scss" scoped>
 .container {
   max-width: 1100px;
-  padding: 0 5vh 10vh;
+  padding: 0 5vh 5vh;
   p{
     margin: 10px 0 0;
     color: white;
@@ -104,6 +104,7 @@ img{
   font-family: "Cardo";
   font-size: 40px;
   text-align: center;
+  padding-top:5vh;
 }
 .search-bar{
   background-image: url("~@/assets/glasses-ge74007b43_1280.jpg");

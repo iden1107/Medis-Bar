@@ -18,12 +18,13 @@
 <style scoped lang="scss">
 .container {
   max-width: 1100px;
-  padding: 8vh 5vh 0vh;
+  padding: 0vh 5vh 5vh;
 }
 .sub-title{
   font-family: "Cardo";
   font-size: 40px;
   text-align: center;
+  padding-top: 5vh;
 }
 </style>
 
