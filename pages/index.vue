@@ -7,7 +7,7 @@
     </section>
     <section class="concept">
       <div class="container">
-        <p class="white--text sub-title">concept</p>
+        <p class="white--text sub-title">Concept</p>
         <v-row>
           <v-col cols="12" sm="5">
             <img
@@ -28,7 +28,7 @@
     </section>
     <section class="store">
       <div class="container">
-        <p class="white--text sub-title">store</p>
+        <p class="white--text sub-title">Store</p>
         <v-row>
           <v-col cols="12" sm="4">
             <p class="white--text text-center text-h5">新宿店</p>

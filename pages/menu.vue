@@ -3,14 +3,16 @@
     <!-- 検索 -->
     <section class="search">
       <div class="container">
-
+<!--
         <p class="white--text">{{filteredCocktails}}</p>
-        <p class="white--text">{{searchCondition}}</p>
+        <p class="white--text">{{searchCondition}}</p> -->
 
-        <v-row>
+        <v-row class="search-bar">
           <!-- 名前検索 -->
-          <v-col>
+          <v-col cols="6" md="3">
+            <p>名称</p>
             <v-textarea
+              label=""
               v-model="search.name"
               rows="1"
               background-color="white"
@@ -18,27 +20,9 @@
               no-resize
             ></v-textarea>
           </v-col>
-          <!-- 金額検索（下限・上限） -->
-          <v-col>
-            <v-textarea
-              v-model="search.lowerPrice"
-              rows="1"
-              background-color="white"
-              color="black"
-              no-resize>
-            </v-textarea>
-          </v-col>
-          <v-col>
-            <v-textarea
-              v-model="search.upperPrice"
-              rows="1"
-              background-color="white"
-              color="black"
-              no-resize>
-            </v-textarea>
-          </v-col>
           <!-- ジャンル検索 -->
-          <v-col>
+          <v-col cols="6" md="3">
+            <p>ジャンル</p>
             <v-select
               v-model="search.base"
               :items="cocktailbase"
@@ -47,6 +31,31 @@
               background-color="white"
             ></v-select>
           </v-col>
+          <!-- 金額検索（下限・上限） -->
+          <v-col cols="6" md="3">
+            <p>価格</p>
+            <v-textarea
+              v-model="search.lowerPrice"
+              rows="1"
+              background-color="white"
+              color="black"
+              no-resize>
+            </v-textarea>
+          </v-col>
+          <v-col cols="6" md="3">
+            <p>価格</p>
+            <v-textarea
+              v-model="search.upperPrice"
+              rows="1"
+              background-color="white"
+              color="black"
+              no-resize>
+            </v-textarea>
+          </v-col>
+          <!-- クリアボタン -->
+          <v-col cols="12"  class="d-flex justify-end">
+            <v-btn color="white" @click="searchClear" >クリア</v-btn>
+          </v-col>
         </v-row>
       </div>
     </section>
@@ -54,7 +63,8 @@
     <!-- メニュー -->
     <section class="cocktails">
       <div class="container">
-        <v-row>
+        <p class="white--text sub-title">Menu</p>
+        <transition-group name="menu" tag="v-row">
           <v-col
             cols="12"
             md="6"
@@ -71,7 +81,7 @@
                 <p class="white--text">{{ cocktail.base == 8 ? "ソーダ水":cocktailbase[cocktail.base]}}</p>
               </div>
           </v-col>
-        </v-row>
+        </transition-group>
       </div>
     </section>
   </div>
@@ -80,11 +90,21 @@
 <style lang="scss" scoped>
 .container {
   max-width: 1100px;
-  padding: 5vh;
+  padding: 0 5vh 10vh;
 }
 img{
   width: 45%;
   max-width: 250px;
+}
+.sub-title{
+  font-family: "Cardo";
+  font-size: 40px;
+  text-align: center;
+}
+.search-bar{
+  background-image: url("~@/assets/glasses-ge74007b43_1280.jpg");
+  background-size: cover;
+  background-position: top center;
 }
 .detail{
   padding: 0 16px;
@@ -94,13 +114,28 @@ img{
   color: white;
   font-size: 22px;
 }
+
+// アニメーション
+.menu-enter-active, .menu-leave-active, .menu-move {
+  transition: opacity 1s, transform 1s;
+}
+.menu-leave-active {
+  position: absolute;
+}
+.menu-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.menu-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
 </style>
 <script>
 export default {
   name: "MenuPage",
   data() {
     return {
-      name:"abcd ef dd ff",
       cocktailbase: [
         "すべて",
         "ジン",
@@ -155,9 +190,17 @@ export default {
       }
     };
   },
+  methods:{
+    // 検索窓クリアメソッド
+    searchClear(){
+      this.search = {
+        name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
+      }
+    }
+  },
   filters:{
     locale(value){
-      return  "¥" + value.toLocaleString()
+      return "¥" + value.toLocaleString()
     },
     firstCharacterUpperCase(value){
       // 一旦すべてのメニュー先頭文字を大文字に変更
@@ -166,19 +209,20 @@ export default {
       // Andだけすべて小文字にandに変更
       let indexAndString = nameString.indexOf("And")
       nameString[indexAndString] = "and"
-      // 文字列をすべて連結し直す
+      // 文字列をすべて再連結
       return nameString.join(" ")
     }
   },
   computed: {
     searchCondition(){
-      //
+      // 下限・上限をから文字から0と無限大に変換（検索用）
       let copyObjct =  Object.assign({},this.search);
       copyObjct.lowerPrice = copyObjct.lowerPrice == "" ? 0 : copyObjct.lowerPrice
       copyObjct.upperPrice = copyObjct.upperPrice == "" ? Infinity: copyObjct.upperPrice
       return copyObjct
     },
     filteredCocktails(){
+      // 描画するカクテルの抽出
       if(this.search.base == "すべて"){
         return this.cocktails.filter((result) =>
           result.name.indexOf(this.search.name) > -1 &&
@@ -188,7 +232,7 @@ export default {
       }else{
         // ベース酒を配列のindexに変換
         let selectBase = this.cocktailbase.indexOf(this.search.base)
-        // 絞り込み
+        // ジャンルの絞り込み
         return this.cocktails.filter((result) =>
           result.name.indexOf(this.search.name) > -1 &&
           result.price >= this.searchCondition.lowerPrice &&
