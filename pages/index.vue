@@ -63,7 +63,6 @@
   </div>
 </template>
 
-
 <style scoped lang="scss">
 .container {
   max-width: 1100px;
@@ -90,6 +89,7 @@ img {
   }
 }
 </style>
+
 <script>
 export default {
   name: "IndexPage",

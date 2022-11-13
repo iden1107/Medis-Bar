@@ -1,12 +1,8 @@
 <template>
   <div class="menu">
-    <!-- 検索 -->
+    <!-- 検索バー -->
     <section class="search">
       <div class="container">
-<!--
-        <p class="white--text">{{filteredCocktails}}</p>
-        <p class="white--text">{{searchCondition}}</p> -->
-
         <v-row class="search-bar">
           <!-- 名前検索 -->
           <v-col cols="6" md="3">
@@ -122,7 +118,6 @@ img{
   color: white;
   font-size: 22px;
 }
-
 // アニメーション
 .menu-enter-active, .menu-leave-active, .menu-move {
   transition: opacity 1s, transform 1s;
@@ -139,20 +134,13 @@ img{
   transform: translateX(100px);
 }
 </style>
+
 <script>
 export default {
   name: "MenuPage",
   data() {
     return {
-      cocktailbase: [
-        "すべて",
-        "ジン",
-        "ウォッカ",
-        "ラム",
-        "テキーラ",
-        "リキュール",
-        "ワイン",
-        "ウィスキー",
+      cocktailbase: ["すべて","ジン","ウォッカ","ラム","テキーラ","リキュール","ワイン","ウィスキー",
       ],
       cocktails: [
         { id: 1, name: "mojito", price: 1500, base: 3, img: "mojito" },
@@ -162,37 +150,19 @@ export default {
         { id: 5, name: "blue hawaii", price: 1500, base: 3, img: "blue_hawaii" },
         { id: 6, name: "bloody mary", price: 2800, base: 2, img: "bloody_mary" },
         { id: 7, name: "pink lady", price: 3100, base: 1, img: "pink_lady" },
-        {
-          id: 8,
-          name: "cassis and orange",
-          price: 2200,
-          base: 5,
-          img: "cassis_orange",
-        },
+        {id: 8,name: "cassis and orange",price: 2200,base: 5,img: "cassis_orange",},
         { id: 9, name: "grasshopper", price: 900, base: 5, img: "grasshopper" },
-        {
-          id: 10,
-          name: "kahlua and milk",
-          price: 1200,
-          base: 5,
-          img: "kahlua_and_milk",
-        },
+        {id: 10,name: "kahlua and milk",price: 1200,base: 5,img: "kahlua_and_milk",},
         { id: 11, name: "screwdriver", price: 1200, base: 2, img: "screwdriver" },
         { id: 12, name: "sky Diving", price: 1000, base: 3, img: "sky_diving" },
         { id: 13, name: "spumoni", price: 1500, base: 5, img: "spumoni" },
         { id: 14, name: "balalaika", price: 2000, base: 2, img: "balalaika" },
         { id: 15, name: "margarita", price: 2400, base: 4, img: "margarita" },
         { id: 16, name: "manhattan", price: 1100, base: 7, img: "manhattan" },
-        {
-          id: 17,
-          name: "soda",
-          price: 10000000,
-          base: 8,
-          img: "gin_and_tonic",
-        },
+        {id: 17,name: "soda",price: 10000000,base: 8,img: "gin_and_tonic",},
         { id: 18, name: "Violet Fizz", price: 3000, base: 4, img: "violet_fizz" },
       ],
-      // 検索用
+      // 検索用デフォルト値
       search:{
         name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
       }
@@ -250,6 +220,5 @@ export default {
       }
     }
   },
-
 };
 </script>
