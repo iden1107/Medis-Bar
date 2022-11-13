@@ -121,7 +121,6 @@ export default {
   methods:{
     // 600px以上でドロワーメニューを非表示
     drawerMenuShow(){
-      console.log(window.outerWidth)
       if(window.outerWidth >= 600){
         this.drawer = false
       }
