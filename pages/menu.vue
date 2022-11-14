@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-            <p class="white--text sub-title">Menu</p>
+    <p class="white--text sub-title">Menu</p>
     <!-- 検索バー -->
     <section class="search">
       <div class="container">
@@ -29,7 +29,7 @@
               class="p-0"
             ></v-select>
           </v-col>
-          <!-- 金額検索（下限・上限） -->
+          <!-- 金額検索（下限） -->
           <v-col cols="6" md="3">
             <p>下限価格</p>
             <v-text-field
@@ -42,6 +42,7 @@
               no-resize>
             </v-text-field>
           </v-col>
+          <!-- 金額検索（上限） -->
           <v-col cols="6" md="3">
             <p>上限価格</p>
             <v-text-field
@@ -175,7 +176,7 @@ export default {
       ],
       // 検索用デフォルト値
       search:{
-        name:"",lowerPrice:Number.NEGATIVE_INFINITY,upperPrice:Infinity , base:"すべて"
+        name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
       }
     };
   },
@@ -183,7 +184,7 @@ export default {
     // 検索窓クリアメソッド（デフォルト値に戻す）
     searchClear(){
       this.search = {
-        name:"",lowerPrice:Number.NEGATIVE_INFINITY,upperPrice:Infinity , base:"すべて"
+        name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
       }
     }
   },
@@ -204,23 +205,31 @@ export default {
     }
   },
   computed: {
+    condition(){
+      // 検索用オブジェクト
+      let copyObject = Object.assign({}, this.search)
+      // 検索の上限・下限の値を0と無限大に入れ直す
+      copyObject.lowerPrice = copyObject.lowerPrice == "" ? 0: copyObject.lowerPrice
+      copyObject.upperPrice = copyObject.upperPrice == "" ? Infinity: copyObject.upperPrice
+      return copyObject
+    },
     filteredCocktails(){
-      // 描画するカクテルの抽出
+      // 描画するカクテルの抽出（検索用オブジェクトを参照する）
       // ジャンルの有無で条件分岐
-      if(this.search.base == "すべて"){
+      if(this.condition.base == "すべて"){
         return this.cocktails.filter((result) =>
-          result.name.indexOf(this.search.name) > -1 &&
-          result.price >= this.search.lowerPrice &&
-          result.price <= this.search.upperPrice
+          result.name.indexOf(this.condition.name) > -1 &&
+          result.price >= this.condition.lowerPrice &&
+          result.price <= this.condition.upperPrice
         )
       }else{
         // 選択されたジャンルを配列のindexに割り当てて変換
-        let selectBase = this.cocktailbase.indexOf(this.search.base)
+        let selectBase = this.cocktailbase.indexOf(this.condition.base)
         // 合致するジャンルの絞り込み
         return this.cocktails.filter((result) =>
-          result.name.indexOf(this.search.name) > -1 &&
-          result.price >= this.search.lowerPrice &&
-          result.price <= this.search.upperPrice &&
+          result.name.indexOf(this.condition.name) > -1 &&
+          result.price >= this.condition.lowerPrice &&
+          result.price <= this.condition.upperPrice &&
           result.base == selectBase
         )
       }
