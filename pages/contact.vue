@@ -100,6 +100,7 @@ export default {
   },
   computed:{
     buttonDisable(){
+      // 空文字判定し送信ボタンの活性・非活性を返す
       if(!this.inquiryForm.name || !this.inquiryForm.kana  || !this.inquiryForm.email || !this.inquiryForm.content){
         return true
       }else{
