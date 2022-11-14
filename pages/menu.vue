@@ -32,23 +32,27 @@
           <!-- 金額検索（下限・上限） -->
           <v-col cols="6" md="3">
             <p>下限価格</p>
-            <v-textarea
-              v-model="search.lowerPrice"
-              rows="1"
+            <v-text-field
+              v-model.number="search.lowerPrice"
+              type="number"
+              hide-spin-buttons
+              placeholder="MIN"
               background-color="white"
               color="black"
               no-resize>
-            </v-textarea>
+            </v-text-field>
           </v-col>
           <v-col cols="6" md="3">
             <p>上限価格</p>
-            <v-textarea
-              v-model="search.upperPrice"
-              rows="1"
+            <v-text-field
+              v-model.number="search.upperPrice"
+              type="number"
+              hide-spin-buttons
+              placeholder="MAX"
               background-color="white"
               color="black"
               no-resize>
-            </v-textarea>
+            </v-text-field>
           </v-col>
           <!-- クリアボタン -->
           <v-col cols="12"  class="d-flex justify-end">
@@ -101,7 +105,7 @@
     margin: 10px 0 0;
     color: white;
   }
-  .v-textarea,.v-select{
+  .v-textarea,.v-select,.v-text-field{
     padding-top: 0;
   }
 }
@@ -171,7 +175,7 @@ export default {
       ],
       // 検索用デフォルト値
       search:{
-        name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
+        name:"",lowerPrice:"",upperPrice:Infinity , base:"すべて"
       }
     };
   },
@@ -179,7 +183,7 @@ export default {
     // 検索窓クリアメソッド
     searchClear(){
       this.search = {
-        name:"",lowerPrice:"",upperPrice:"" , base:"すべて"
+        name:"",lowerPrice:"",upperPrice:Infinity , base:"すべて"
       }
     }
   },
