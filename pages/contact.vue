@@ -37,7 +37,7 @@
           background-color="white"
           color="black">
         ></v-textarea>
-        <v-btn to="/" >送信</v-btn>
+        <nuxt-link to="/"><button :disabled="buttonDisable">送信</button></nuxt-link>
         <span class="white--text">※実際には送信されません</span>
       </section>
     </div>
@@ -59,7 +59,14 @@
   }
 }
 button{
+  padding: 5px 15px;
+  border-radius: 3px;
   background-color: white;
+  color: black;
+  &:disabled{
+    background-color: gray;
+    opacity: 0.8;
+  }
 }
 .container {
   max-width: 1100px;
@@ -88,6 +95,15 @@ export default {
     blurText(value){
       if(this.inquiryForm[value] == null){
         this.inquiryForm[value] = ""
+      }
+    }
+  },
+  computed:{
+    buttonDisable(){
+      if(!this.inquiryForm.name || !this.inquiryForm.kana  || !this.inquiryForm.email || !this.inquiryForm.content){
+        return true
+      }else{
+        return false
       }
     }
   }
