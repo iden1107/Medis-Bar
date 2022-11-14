@@ -8,14 +8,14 @@
           <!-- 名前検索 -->
           <v-col cols="6" md="3">
             <p>カクテル名</p>
-            <v-textarea
+            <v-text-field
               label=""
               v-model="search.name"
               rows="1"
               background-color="white"
               color="black"
               no-resize
-            ></v-textarea>
+            ></v-text-field>
           </v-col>
           <!-- ジャンル検索 -->
           <v-col cols="6" md="3">
@@ -106,7 +106,7 @@
     margin: 10px 0 0;
     color: white;
   }
-  .v-textarea,.v-select,.v-text-field{
+  .v-select,.v-text-field{
     padding-top: 0;
   }
 }
@@ -171,7 +171,7 @@ export default {
         { id: 14, name: "balalaika", price: 2000, base: 2, img: "balalaika" },
         { id: 15, name: "margarita", price: 2400, base: 4, img: "margarita" },
         { id: 16, name: "manhattan", price: 1100, base: 7, img: "manhattan" },
-        { id: 17,name: "soda",price: 10000000,base: 8,img: "gin_and_tonic",},
+        { id: 17,name: "soda",price: 1000000,base: 8,img: "gin_and_tonic",},
         { id: 18, name: "Violet Fizz", price: 3000, base: 4, img: "violet_fizz" },
       ],
       // 検索用デフォルト値
@@ -206,7 +206,7 @@ export default {
   },
   computed: {
     condition(){
-      // 検索用オブジェクト
+      // 検索条件用オブジェクト
       let copyObject = Object.assign({}, this.search)
       // 検索の上限・下限の値を0と無限大に入れ直す
       copyObject.lowerPrice = copyObject.lowerPrice == "" ? 0: copyObject.lowerPrice
@@ -214,7 +214,7 @@ export default {
       return copyObject
     },
     filteredCocktails(){
-      // 描画するカクテルの抽出（検索用オブジェクトを参照する）
+      // 描画するカクテルの抽出（検索条件用オブジェクトを参照する）
       // ジャンルの有無で条件分岐
       if(this.condition.base == "すべて"){
         return this.cocktails.filter((result) =>
