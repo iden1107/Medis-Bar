@@ -148,8 +148,7 @@ export default {
   name: "MenuPage",
   data() {
     return {
-      cocktailbase: ["すべて","ジン","ウォッカ","ラム","テキーラ","リキュール","ワイン","ウィスキー",
-      ],
+      cocktailbase: ["すべて","ジン","ウォッカ","ラム","テキーラ","リキュール","ワイン","ウィスキー"],
       cocktails: [
         { id: 1, name: "mojito", price: 1500, base: 3, img: "mojito" },
         { id: 2, name: "martini", price:1800, base: 1, img: "martini" },
@@ -201,7 +200,7 @@ export default {
   },
   computed: {
     searchCondition(){
-      // 下限・上限をから文字から0と無限大に変換（検索用）
+      // 下限・上限を空文字から0と無限大に変換（検索用）
       let copyObjct =  Object.assign({},this.search);
       copyObjct.lowerPrice = copyObjct.lowerPrice == "" ? 0 : copyObjct.lowerPrice
       copyObjct.upperPrice = copyObjct.upperPrice == "" ? Infinity: copyObjct.upperPrice
@@ -209,6 +208,7 @@ export default {
     },
     filteredCocktails(){
       // 描画するカクテルの抽出
+      // ジャンルの有無で条件分岐
       if(this.search.base == "すべて"){
         return this.cocktails.filter((result) =>
           result.name.indexOf(this.search.name) > -1 &&
@@ -216,7 +216,7 @@ export default {
           result.price <= this.searchCondition.upperPrice
         )
       }else{
-        // ベース酒を配列のindexに変換
+        // 選択されたジャンルを配列のindexに割り当てて変換
         let selectBase = this.cocktailbase.indexOf(this.search.base)
         // ジャンルの絞り込み
         return this.cocktails.filter((result) =>
