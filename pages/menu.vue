@@ -175,15 +175,15 @@ export default {
       ],
       // 検索用デフォルト値
       search:{
-        name:"",lowerPrice:"",upperPrice:Infinity , base:"すべて"
+        name:"",lowerPrice:Number.NEGATIVE_INFINITY,upperPrice:Infinity , base:"すべて"
       }
     };
   },
   methods:{
-    // 検索窓クリアメソッド
+    // 検索窓クリアメソッド（デフォルト値に戻す）
     searchClear(){
       this.search = {
-        name:"",lowerPrice:"",upperPrice:Infinity , base:"すべて"
+        name:"",lowerPrice:Number.NEGATIVE_INFINITY,upperPrice:Infinity , base:"すべて"
       }
     }
   },
@@ -192,41 +192,35 @@ export default {
       return "¥" + value.toLocaleString()
     },
     firstCharacterUpperCase(value){
+      // メニュー文字の文字変換
       // 一旦すべてのメニュー先頭文字を大文字に変更
       let nameString = value.split(' ');
       nameString = nameString.map(result=>result.charAt(0).toUpperCase() + result.slice(1))
       // Andだけすべて小文字にandに変更
       let indexAndString = nameString.indexOf("And")
       nameString[indexAndString] = "and"
-      // 文字列をすべて再連結
+      // 文字列を再連結
       return nameString.join(" ")
     }
   },
   computed: {
-    searchCondition(){
-      // 下限・上限を空文字から0と無限大に変換（検索用）
-      let copyObjct =  Object.assign({},this.search);
-      copyObjct.lowerPrice = copyObjct.lowerPrice == "" ? 0 : copyObjct.lowerPrice
-      copyObjct.upperPrice = copyObjct.upperPrice == "" ? Infinity: copyObjct.upperPrice
-      return copyObjct
-    },
     filteredCocktails(){
       // 描画するカクテルの抽出
       // ジャンルの有無で条件分岐
       if(this.search.base == "すべて"){
         return this.cocktails.filter((result) =>
           result.name.indexOf(this.search.name) > -1 &&
-          result.price >= this.searchCondition.lowerPrice &&
-          result.price <= this.searchCondition.upperPrice
+          result.price >= this.search.lowerPrice &&
+          result.price <= this.search.upperPrice
         )
       }else{
         // 選択されたジャンルを配列のindexに割り当てて変換
         let selectBase = this.cocktailbase.indexOf(this.search.base)
-        // ジャンルの絞り込み
+        // 合致するジャンルの絞り込み
         return this.cocktails.filter((result) =>
           result.name.indexOf(this.search.name) > -1 &&
-          result.price >= this.searchCondition.lowerPrice &&
-          result.price <= this.searchCondition.upperPrice &&
+          result.price >= this.search.lowerPrice &&
+          result.price <= this.search.upperPrice &&
           result.base == selectBase
         )
       }
