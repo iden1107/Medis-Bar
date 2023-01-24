@@ -18,9 +18,9 @@
           </v-col>
           <v-col cols="12" sm="7">
             <p class="white--text">
-              このサイトはVueの紹介サイトです。本サイトはフィクションであり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。<br />
-              このサイトはVueの紹介サイトです。本サイトはフィクションであり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。<br />
-              このサイトはVueの紹介サイトです。本サイトはフィクションであり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。ふがふが。<br />
+              このサイトはVueの紹介サイトです。本サイトは架空であり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。<br />
+              このサイトはVueの紹介サイトです。本サイトは架空であり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。<br />
+              このサイトはVueの紹介サイトです。本サイトは架空であり、実在する人物、団体等とは一切関係ありません。写真はフリー画像素材<a href="https://pixabay.com/ja/" class="white--text">pixabay</a>、<a href="https://www.ac-illust.com/" class="white--text">illustAC</a>から引用しています。<br />
             </p>
           </v-col>
         </v-row>

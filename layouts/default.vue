@@ -21,9 +21,9 @@
         <v-list-item router to="/contact" exact>
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">Contact</p></v-list-item-title>
         </v-list-item>
-        <v-list-item router to="/slide" exact class="nav-slide">
+        <!-- <v-list-item router to="/slide" exact class="nav-slide">
           <v-list-item-title class="d-flex justify-center"><p class="white--text drawer-list">スライド</p></v-list-item-title>
-        </v-list-item>
+        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
 
@@ -37,7 +37,7 @@
         <v-toolbar-items class="d-none d-sm-block">
           <v-btn to="/menu" text class="white--text" style="text-transform: none">Menu</v-btn>
           <v-btn to="/contact" text class="white--text" style="text-transform: none">Contact</v-btn>
-          <v-btn to="/slide" class="primary">スライド</v-btn>
+          <!-- <v-btn to="/slide" class="primary">スライド</v-btn> -->
         </v-toolbar-items>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="white--text d-sm-none"/>
       </v-toolbar-items>
