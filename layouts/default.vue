@@ -87,7 +87,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Medis Bar",
+      title: "Sample Bar",
     };
   },
   methods:{

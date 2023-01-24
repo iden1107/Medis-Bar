@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'Medis Bar',
-    title: 'Medis Bar',
+    titleTemplate: 'Sample Bar',
+    title: 'Sample Bar',
     htmlAttrs: {
       lang: 'ja'
     },
