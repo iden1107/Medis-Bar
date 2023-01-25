@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <div class="error">
     <div class="container">
       <h1 v-if="error.statusCode === 404" class="white--text">
         {{ pageNotFound }}
@@ -11,12 +11,18 @@
         ホームへ戻る
       </NuxtLink>
       </div>
-  </v-app>
+  </div>
 </template>
 
 <style scoped>
 .container{
   max-width: 1100px;
+}
+.error{
+  background-image: url("~@/assets/black-g73bfa2a23_1280.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
 }
 </style>
 <script>

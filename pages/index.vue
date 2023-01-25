@@ -60,6 +60,12 @@
         </v-row>
       </div>
     </section>
+    <section class="source">
+      <div class="container">
+        <p class="white--text sub-title">Source</p>
+        <p class="white--text text-center">ソースコードは<a href="https://github.com/iden1107/Sample-Bar" target="_blank" class="white--text">こちら</a>のGithubで公開しています</p>
+      </div>
+    </section>
   </div>
 </template>
 
