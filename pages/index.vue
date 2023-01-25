@@ -2,7 +2,7 @@
   <div class="home">
     <section class="top">
       <div class="py-5 mx-auto d-flex align-center justify-center">
-        <p class="white--text">Sample Bar</p>
+        <p class="white--text">Sample Barrrr</p>
       </div>
     </section>
     <section class="concept">
