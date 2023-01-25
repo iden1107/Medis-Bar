@@ -3,7 +3,7 @@
 
 
 ### リンク
-[https://medical-device-system.herokuapp.com](https://medical-device-system.herokuapp.com)
+[バーのサンプルサイト](https://sample-bar.netlify.app/)
 
 ## サービス概要
 架空のバーでのメニューの検索、お問い合わせができるサイトです。
@@ -19,4 +19,4 @@
 - Vuetify 2.6.1
 
 ### インフラ
-- heroku
+- Netlify

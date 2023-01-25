@@ -66,7 +66,7 @@
     <!-- メニュー -->
     <section class="cocktails">
       <div class="container">
-        <transition-group name="menu" tag="v-row">
+        <transition-group name="menu" tag="v-row" class="row">
           <v-col
             cols="12"
             md="6"
