@@ -49,13 +49,13 @@
             <p class="white--text">東京都渋谷区XX-XX</p>
           </v-col>
           <v-col cols="12" sm="4">
-            <p class="white--text text-center text-h5">徳島店</p>
+            <p class="white--text text-center text-h5">難波店</p>
             <img
               src="~@/assets/interior-g04a568cb0_1920.jpg"
               alt=""
               width="100%"
             />
-            <p class="white--text">徳島県徳島市XX-XX</p>
+            <p class="white--text">大阪府大阪市XX-XX</p>
           </v-col>
         </v-row>
       </div>
